@@ -1,12 +1,20 @@
 import React from 'react';
 import {LIZARD, PAPER, ROCK, SCISSORS, SPOCK} from '../constants/gestures';
+import {Gesture} from './Gesture';
 
 
-export const GesturePicker = ({submitGesture}) =>
-  <div className="gesture__picker">
-    <div className="rock" onClick={() => submitGesture(ROCK)}>Rock</div>
-    <div className="paper" onClick={()=> submitGesture(PAPER)}>Paper</div>
-    <div className="scissors" onClick={()=> submitGesture(SCISSORS)}>Scissors</div>
-    <div className="spock" onClick={()=> submitGesture(SPOCK)}>Spock</div>
-    <div className="lizard" onClick={()=> submitGesture(LIZARD)}>Lizard</div>
-  </div>
+export const GesturePicker = ({submitGesture, myGesture}) => {
+  const gestures = [LIZARD, PAPER, ROCK, SCISSORS, SPOCK];
+  const activeAll = !myGesture;
+  let active;
+  return(
+    <div className="gesture__picker">
+      {gestures.map((gesture, index) => {
+          active = !(!activeAll && gesture!==myGesture);
+          return (<Gesture gesture_name={gesture} submitGesture={submitGesture}
+                   key={index} active={active}/>);
+        }
+      )}
+    </div>
+  );
+};

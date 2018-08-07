@@ -10,11 +10,15 @@ export const Chat = ({messages, sendMessage}) => {
   }
   return (
     <div className="chat">
-      {messages.map((message, index) =>
-        <ChatMessage key={index} text={message.text} sender={message.sender}/>
-      )}
-      <input type="text" ref={(input) => _text = input}/>
-      <button onClick={send}>Send</button>
+      <div className="chat__messages">
+        {messages.map((message, index) =>
+          <ChatMessage key={index} text={message.text} sender={message.sender}/>
+        )}
+      </div>
+      <div className="input__container">
+        <input type="text" ref={(input) => _text = input}/>
+        <button onClick={send}>Send</button>
+      </div>
     </div>
   );
 };

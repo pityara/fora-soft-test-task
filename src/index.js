@@ -6,9 +6,10 @@ import socketIO from  'socket.io-client';
 import registerServiceWorker from './registerServiceWorker';
 import AppContainer from './containers/AppContainer';
 import { socketActions } from './actions/socketActions';
+import "./index.css";
 
 let store = configureStore();
-let socket = socketIO.connect(`${window.location.hostname}:8484`);
+let socket = socketIO.connect(`178.128.153.39:8484`);
 socketActions(socket, store);
 
 ReactDOM.render(

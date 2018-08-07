@@ -1,0 +1,146 @@
+body {
+    font-family: SansSerif Serif Arial;
+    background: url('white-cubes.png');
+}
+
+.game__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat {
+    padding: 40px;
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 2px solid #cccccc ;
+}
+
+.chat__messages {
+    overflow: scroll;
+}
+
+.creating__container, game__created {
+    margin-top: 30vh;
+    line-height: 2;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.game__created > input[type="text"] {
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1em;
+    width: 65%;
+    text-align: center;
+}
+
+.error {
+    margin-top: 30vh;
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+.chat__message {
+    border-top: 3px dotted #cccccc;
+}
+
+.input__container > input[type="text"] {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    outline: none;
+    height: 26px;
+    width: 83%;
+}
+
+.input__container > button {
+    text-align:center;
+    margin-left: 3px;
+    padding:4px 22px;
+    border:solid 1px #004F72;
+    border-radius: 4px;
+    color:#E5FFFF;
+    background-color:#3BA4C7;
+    background-image: linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
+    box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+
+}
+
+.battle__field {
+    display: flex;
+    justify-content: center;
+}
+
+.game__field {
+    margin: 40px;
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.player__status {
+    text-align: center;
+    font-size: 3em;
+}
+
+.gesture__picker {
+    display: flex;
+}
+
+.gesture {
+    margin: 10px;
+    height: 112px;
+    width: 112px;
+    border-radius: 50%;
+    position: relative;
+    overflow:hidden;
+    transition: all .5s;
+    border: 2px solid #e17c8c;
+}
+
+.gesture.disabled::after {
+    content: '';
+    width: 112px;
+    height: 112px;
+    position: absolute;
+    background: rgb(0,0,0);
+}
+
+.gesture.active::after {
+    cursor: pointer;
+    content: '';
+    width: 112px;
+    height: 112px;
+    position:absolute;
+    background: radial-gradient(transparent, rgba(0,0,0,.3));
+    transition: opacity .5s;
+}
+
+.gesture.active:hover::after, .gesture.show__only::after {
+    opacity: 0;
+}
+
+.gesture.scissors {
+    background: url(gestures.png) -3px -5px;
+    transition: opacity .5s;
+}
+.gesture.rock {
+    background: url(gestures.png) -286px -129px;
+}
+.gesture.paper {
+    background: url(gestures.png) -287px -5px;
+}
+
+.gesture.lizard {
+    background: url(gestures.png) -1px -134px;
+}
+
+.gesture.spock {
+    background: url(gestures.png) -144px -5px;
+}

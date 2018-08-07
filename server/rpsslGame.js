@@ -112,8 +112,8 @@ function getMessage(data) {
 }
 
 function crashRoom() {
-  const game = rooms[this.gameId];
-  io.sockets.in(this.gameId).emit(ERROR, {message: 'your enemy disconnected from game', sender: 'game'});
+  io.sockets.in(this.gameId).emit(ERROR, {message: 'your enemy disconnected from game'});
+  delete rooms[this.gameId];
 }
 
 function getWinner(gesture1, gesture2) {

@@ -1,13 +1,9 @@
 import React from 'react';
 import ChatContainer from '../containers/ChatContainer';
-import {GesturePicker} from './GesturePicker';
-import {Status} from './Status';
+import {GameField} from './GameField';
 
-export const Game = ({ socket, myGesture, submitGesture, draw, winner }) =>
+export const Game = (props) =>
   <div className="game__container">
-    <Status winner={winner} draw={draw}/>
-    {(!myGesture) ?
-      <GesturePicker submitGesture={submitGesture}/> :
-      ""}
-    <ChatContainer socket={socket}/>
+    <GameField {...props}/>
+    <ChatContainer socket={props.socket}/>
   </div>

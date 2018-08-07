@@ -33,6 +33,7 @@ class GameContainer extends React.Component {
 const mapStateToProps = ({game}) => {
   return {
     myGesture: game.myGesture,
+    enemyGesture: game.enemyGesture,
     winner: game.winner,
     draw: game.draw,
   }
