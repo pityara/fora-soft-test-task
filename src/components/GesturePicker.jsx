@@ -1,10 +1,21 @@
+/**
+ * Contains
+ * Gesture Picker component
+ */
 import React from 'react';
-import {LIZARD, PAPER, ROCK, SCISSORS, SPOCK} from '../constants/gestures';
-import {Gesture} from './Gesture';
+import PropTypes from 'prop-types';
+import { LIZARD, PAPER, ROCK, SCISSORS, SPOCK } from '../constants/gestures';
+import { Gesture } from './Gesture';
 
-
+/**
+ * Gesture Picker component
+ * @param {function} submitGesture - callback for submit my gesture
+ * @param {string} myGesture - my gesture name
+ * @returns {*}
+ * @constructor
+ */
 export const GesturePicker = ({submitGesture, myGesture}) => {
-  const gestures = [LIZARD, PAPER, ROCK, SCISSORS, SPOCK];
+  const gestures = [ LIZARD, PAPER, ROCK, SCISSORS, SPOCK ];
   const activeAll = !myGesture;
   let active;
   return(
@@ -18,3 +29,12 @@ export const GesturePicker = ({submitGesture, myGesture}) => {
     </div>
   );
 };
+
+GesturePicker.propTypes = {
+  submitGesture: PropTypes.func,
+  myGesture: PropTypes.string,
+};
+
+GesturePicker.defaultProps = {
+  submitGesture: () => {},
+}

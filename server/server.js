@@ -1,25 +1,21 @@
-var express = require('express');
-var path = require('path');
-var app = express();
-//connect module with game functions
-var rpssl = require('./rpsslGame.js');
+const express = require('express');
+const app = express();
 
-//configure application
-//app.use(express.logger('dev'));
-//Setting up where serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-var server = app.listen(8484)
+//connect module with game functions
+const game= require('./gameController.js');
+
+//say server that he must listening port 8484
+const server = app.listen(8484);
 
 //attach socket.io server to express server
-var io = require('socket.io').listen(server);
-
-//Reduce the logging output of Socket.io
-//io.set('log level', 1);
+const io = require('socket.io').listen(server);
 
 //run initialization on every connect
 io.sockets.on('connection', (socket) => {
-  console.log('client connected', socket.id);
-  rpssl.initializeGame(io, socket);
-})
+  //Log connected client id
+  console.log(`Client with id ${socket.id} connected`);
+  //Call method that bind all game functions on actions
+  game.initializeGame(io, socket);
+});
 
 

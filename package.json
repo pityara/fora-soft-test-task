@@ -1,9 +1,10 @@
 {
   "name": "fora-soft-test-task",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "homepage": "http://pityara.github.io/fora-test-task",
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
@@ -15,12 +16,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "gh-pages": "^1.2.0"
   }
 }

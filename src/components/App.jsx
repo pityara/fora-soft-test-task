@@ -1,4 +1,8 @@
+/**
+ * Contains App component
+ */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CreateGameContainer from '../containers/CreateGameContainer';
 import GameContainer from '../containers/GameContainer';
@@ -22,5 +26,12 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  socket: PropTypes.object.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string,
+  }),
+};
 
 export default App;

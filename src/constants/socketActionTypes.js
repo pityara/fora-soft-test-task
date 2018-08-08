@@ -1,3 +1,8 @@
+/**
+ * contains constants
+ * for socket and action types
+ * @type {string}
+ */
 export const MESSAGE = 'MESSAGE';
 export const CONNECT = 'CONNECT';
 export const CHOOSE_GESTURE = 'CHOOSE_GESTURE';
